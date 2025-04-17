@@ -18,6 +18,6 @@ def simple_view(request):
     addresses = Address.objects.all()
     first_address = addresses[0]
     resident_name = str(first_address.resident)
-    html = "<html><head></head><bofdy>Name: "+resident_name+"<br />Address: "+first_address.street_name+"</body></html>"
-    return HttpResponse(html)
+    #html = "<html><head></head><bofdy>Name: "+resident_name+"<br />Address: "+first_address.street_name+"</body></html>"
+    return render(request, 'helloworld/simple.html', {'address': first_address, 'name': resident_name})
 
